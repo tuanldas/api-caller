@@ -8,16 +8,18 @@ let requestOptions = {
     headers: defaultHeaders
 };
 
-const ApiCaller = {
-    withHeaders(headers = []) {
+class ApiCaller {
+    static withHeaders(headers = []) {
         defaultHeaders = headers
         return this
-    },
-    withHeader(key, item) {
+    }
+
+    static withHeader(key, item) {
         defaultHeaders[key] = item
         return this
-    },
-    get(uri) {
+    }
+
+    static get(uri) {
         return axios.get(uri, requestOptions)
     }
 }
