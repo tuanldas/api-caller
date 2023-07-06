@@ -20,7 +20,6 @@ class ApiCaller {
     }
 
     get(uri) {
-        console.log(this.requestOptions)
         return axios.get(uri, this.requestOptions)
     }
 }
