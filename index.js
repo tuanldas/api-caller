@@ -1,25 +1,28 @@
 import axios from "axios";
 
-let defaultHeaders = {
-    'Content-Type': 'application/json'
-}
+class ApiCaller {
+    defaultHeaders = {
+        'Content-Type': 'application/json'
+    }
 
-let requestOptions = {
-    headers: defaultHeaders
-};
+    requestOptions = {
+        headers: this.defaultHeaders
+    }
 
-export default {
     withHeaders(headers = []) {
-        defaultHeaders = headers
+        this.defaultHeaders = headers
         return this
-    },
+    }
 
     withHeader(key, item) {
-        defaultHeaders[key] = item
+        this.defaultHeaders[key] = item
         return this
-    },
+    }
 
     get(uri) {
-        return axios.get(uri, requestOptions)
+        console.log(this.requestOptions)
+        return axios.get(uri, this.requestOptions)
     }
-};
+}
+
+export default ApiCaller;
