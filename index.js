@@ -8,20 +8,18 @@ let requestOptions = {
     headers: defaultHeaders
 };
 
-class ApiCaller {
-    static withHeaders(headers = []) {
+export default {
+    withHeaders(headers = []) {
         defaultHeaders = headers
         return this
-    }
+    },
 
-    static withHeader(key, item) {
+    withHeader(key, item) {
         defaultHeaders[key] = item
         return this
-    }
+    },
 
-    static get(uri) {
+    get(uri) {
         return axios.get(uri, requestOptions)
     }
-}
-
-export default ApiCaller
+};
