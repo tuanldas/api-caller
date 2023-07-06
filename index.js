@@ -5,18 +5,20 @@ let defaultHeaders = {
 }
 
 let requestOptions = {
-    method: 'get',
     headers: defaultHeaders
 };
 
 const ApiCaller = {
+    withHeaders(headers = []) {
+        defaultHeaders = headers
+        return this
+    },
+    withHeader(key, item) {
+        defaultHeaders[key] = item
+        return this
+    },
     get(uri) {
-        return fetch(uri, requestOptions)
-            .then(function (response) {
-                return response.json();
-            })
-            .catch(function (error) {
-            });
+        return axios.get(uri, requestOptions)
     }
 }
 
