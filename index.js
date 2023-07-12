@@ -22,6 +22,13 @@ class ApiCaller {
     get(uri) {
         return axios.get(uri, this.requestOptions)
     }
+
+    post(uri, data, headers = null) {
+        if (headers !== null) {
+            this.withHeaders(headers)
+        }
+        return axios.post(uri, data, this.requestOptions)
+    }
 }
 
 export default ApiCaller;
