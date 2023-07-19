@@ -29,6 +29,13 @@ class ApiCaller {
         }
         return axios.post(uri, data, this.requestOptions)
     }
+
+    delete(uri, data = null, headers = null) {
+        if (headers !== null) {
+            this.withHeaders(headers)
+        }
+        return axios.delete(uri, data, this.requestOptions)
+    }
 }
 
 export default ApiCaller;
