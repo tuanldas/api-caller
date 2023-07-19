@@ -30,11 +30,11 @@ class ApiCaller {
         return axios.post(uri, data, this.requestOptions)
     }
 
-    delete(uri, data = null, headers = null) {
+    delete(uri, headers = null) {
         if (headers !== null) {
             this.withHeaders(headers)
         }
-        return axios.delete(uri, data, this.requestOptions)
+        return axios.delete(uri, this.requestOptions)
     }
 }
 
