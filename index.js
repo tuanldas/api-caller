@@ -5,10 +5,6 @@ class ApiCaller {
         'Content-Type': 'application/json'
     }
 
-    requestOptions = {
-        headers: this.defaultHeaders
-    }
-
     withHeaders(headers) {
         this.defaultHeaders = {
             ...this.defaultHeaders,
@@ -23,21 +19,27 @@ class ApiCaller {
     }
 
     get(uri) {
-        return axios.get(uri, this.requestOptions)
+        return axios.get(uri, this.renderRequestOpction)
     }
 
     post(uri, data, headers = null) {
         if (headers !== null) {
             this.withHeaders(headers)
         }
-        return axios.post(uri, data, this.requestOptions)
+        return axios.post(uri, data, this.renderRequestOpction)
     }
 
     delete(uri, headers = null) {
         if (headers !== null) {
             this.withHeaders(headers)
         }
-        return axios.delete(uri, this.requestOptions)
+        return axios.delete(uri, this.renderRequestOpction)
+    }
+
+    static renderRequestOption() {
+        return {
+            headers: this.defaultHeaders
+        }
     }
 }
 
