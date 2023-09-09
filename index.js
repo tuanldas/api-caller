@@ -10,7 +10,10 @@ class ApiCaller {
     }
 
     withHeaders(headers) {
-        this.defaultHeaders = headers
+        this.defaultHeaders = {
+            ...this.defaultHeaders,
+            ...headers
+        }
         return this
     }
 
