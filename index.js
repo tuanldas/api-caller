@@ -9,7 +9,7 @@ class ApiCaller {
         headers: this.defaultHeaders
     }
 
-    withHeaders(headers = []) {
+    withHeaders(headers) {
         this.defaultHeaders = headers
         return this
     }
